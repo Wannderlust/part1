@@ -12,15 +12,20 @@ const Header = (props) => {
 const Content = (props) => {
 	return (
 		<div>
-			<p>
-			{props.part1} {props.exercises1}
-			</p>
-			<p>
-			{props.part2} {props.exercises2}
-			</p>
-			<p>
-			{props.part3} {props.exercises3}
-			</p>
+			<Part part1={props.part1} exercises1={props.exercises1}/>
+			<Part part2={props.part2} exercises2={props.exercises2}/>
+			<Part part3={props.part3} exercises3={props.exercises3}/>
+		</div>
+		)
+}
+
+
+const Part = (props) => {
+	return (
+		<div>
+			<p>{props.part1} {props.exercises1}</p>
+			<p>{props.part2} {props.exercises2}</p>
+			<p>{props.part3} {props.exercises3}</p>
 		</div>
 		)
 }
@@ -32,6 +37,7 @@ const Total = (props) => {
 		</div>
 		)
 }
+
 
 const App = () => {
 	const course = 'Half Stack application development'
