@@ -2,36 +2,51 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Display = ({ counter }) => <div>{counter}</div>
-
-const Button = ({ handleClick, text }) => (
-		<button onClick={handleClick}>
-			{text}
-		</button>
+const Button = ({ onClick, text }) => {
+	return (
+		<div>
+			<button onClick={onClick}>{text}</button>
+		</div>
 		)
+}
+
+const Statistis = ({ value, text }) => {
+	return (
+		<div>
+			<p>{text}: {value}</p>
+		</div>
+		)
+}
 
 const App = () => {
-	const [counter, setCounter] = useState(0)
+	const [good, setGood] = useState(0)
+	const [neutral, setNeutral] = useState(0)
+	const [bad, setBad] = useState(0)
 
-	const increaseByOne = () => setCounter(counter + 1)
-	const decreaseByOne = () => setCounter(counter - 1)
-	const setToZero = () => setCounter(0)
+	const handleGoodClick = () => {
+		setGood(good + 1)
+	}
+
+	const handleNeutralClick = () => {
+		setNeutral(neutral + 1)
+	}
+
+	const handleBadClick = () => {
+		setBad(bad + 1)
+	}
+
 
 	return (
 		<div>
-		<Display counter={counter} />
-		<Button 
-			handleClick={increaseByOne}
-			text='plus'
-		/>
-		<Button 
-			handleClick={decreaseByOne}
-			text='minus'
-		/>
-		<Button 
-			handleClick={setToZero}
-			text='zero'
-		/>
+			<h2>Give Feedback</h2>
+			<Button onClick={handleGoodClick} text='good'/>
+			<Button onClick={handleNeutralClick} text='neutral'/>
+			<Button onClick={handleBadClick} text='bad'/>
+
+			<h2>Statistis</h2>
+			<Statistis value={good} text='good'/>
+			<Statistis value={neutral} text='neutral'/>
+			<Statistis value={bad} text='bad'/>
 		</div>
 		)
 }
