@@ -18,17 +18,24 @@ const Statistis = (props) => {
 		const average = (good - bad)/all
 		return (
 			<div>
-				<p>god: {good}</p>
-			    <p>neutral: {neutral}</p>
-				<p>bad: {bad}</p>
-				<p>all: {all}</p>
-				<p>average: {average}</p>
-				<p>positive: {(good * 100)/all + '%'}</p>
+			    <Statistic text='good' value={good}/>
+				<Statistic text='neutral' value={neutral}/>
+				<Statistic text='bad' value={bad}/>
+				<Statistic text='all' value={all}/>
+				<Statistic text='average' value={average}/>
+				<Statistic text='positive' value={(good * 100)/all + '%'}/>
 			</div>
 			)
 	}
 }
 
+const Statistic = ({ text, value })  => {
+	return (
+		<div>
+			<p>{text}: {value}</p>
+		</div>	
+		)
+}
 
 const App = () => {
 	const [good, setGood] = useState(0)
