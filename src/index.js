@@ -26,6 +26,12 @@ const Statistis = (props) => {
 				<Statistic text='positive' value={(good * 100)/all + '%'}/>
 			</div>
 			)
+	} else {
+		return (
+			<div>
+				<p>No feedback given</p>
+			</div>
+			)
 	}
 }
 
