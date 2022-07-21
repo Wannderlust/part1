@@ -2,13 +2,7 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Button = ({ onClick, text }) => {
-	return (
-		<div>
-			<button onClick={onClick}>{text}</button>
-		</div>
-		)
-}
+const Button = ({ onClick, text }) => <div><button onClick={onClick}>{text}</button></div>
 
 const Statistis = (props) => {
 	const {good, neutral, bad} = props
